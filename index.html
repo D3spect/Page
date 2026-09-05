@@ -17,6 +17,12 @@
 
         }
 
+
+        .container3 {
+            padding-top: 5000px;
+        }
+
+
         #stars {
             position: absolute;
             top: 0;
@@ -43,8 +49,7 @@
     <canvas id="stars"></canvas>
 
     <script>
-        
-        
+
         function start_canva() {
         
         const canvas = document.getElementById("stars");
@@ -53,7 +58,9 @@
         canvas.height = window.innerHeight
         let star = []
         
-
+        if (window.innerWidth > 6000) {
+           console.log("67")
+        }
         
         
         star.length = 0;
@@ -67,7 +74,7 @@
             ctx.fillStyle = "white";
             ctx.fill();
             star.push([x, y])
-            console.log("test")
+            
         }
         
         
@@ -136,6 +143,17 @@
         <div class="card">
             <img src="Tree.png" width="560" height="360">
         </div>
+    </div>
+    </div>
+
+
+        <div class="container3">
+        <div class="card">
+          <div class="left_header">
+       <a href="https://deltarune.com/man/">
+           <img src="tree.gif" class="logo" alt="logo" width="350" height="350">
+       </a>
+   </div>
     </div>
     </div>
     <meta charset="UTF-8">
