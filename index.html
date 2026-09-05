@@ -19,7 +19,7 @@
 
 
         .container3 {
-            padding-top:67vh;
+            padding-top: var(--treesizing);
             overflow: hidden; 
             overscroll-behavior: contain;
 }       
@@ -54,7 +54,19 @@
     <canvas id="stars"></canvas>
 
     <script>
+let treesizing;
 
+function getBrowser() {
+    if (navigator.userAgent.indexOf("Chrome") != -1) {
+        treesizing = "54.5vh";
+        console.log("chrome")
+    } else {
+        treesizing = "65vh";
+    }
+
+    document.documentElement.style.setProperty("--treesizing", treesizing);
+}
+getBrowser()
         function start_canva() {
         
         const canvas = document.getElementById("stars");
