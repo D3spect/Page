@@ -18,10 +18,12 @@
         }
 
         #stars {
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
             z-index: -1;
+            
+            
         }
 
         body {
@@ -41,13 +43,21 @@
     <canvas id="stars"></canvas>
 
     <script>
+        
+        
+        function start_canva() {
+        
         const canvas = document.getElementById("stars");
         const ctx = canvas.getContext("2d")
         canvas.width = window.innerWidth
         canvas.height = window.innerHeight
-        const star = []
+        let star = []
+        
 
-
+        
+        
+        star.length = 0;
+        console.log(star)
         for (let i = 0; i < 100; i++) {
             let x = Math.random() * canvas.width;
             let y = Math.random() * canvas.height;
@@ -57,8 +67,11 @@
             ctx.fillStyle = "white";
             ctx.fill();
             star.push([x, y])
+            console.log("test")
         }
-
+        
+        
+        
         function clear() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
         }
@@ -80,7 +93,19 @@
 
             requestAnimationFrame(move);
         }
-        move()  
+        move() 
+        
+         function fixcanva() {
+            console.log("resized")
+            canvas.width = window.innerWidth
+            canvas.height = window.innerHeight
+
+            
+        }
+    }
+    start_canva()
+    window.addEventListener("resize", start_canva, false);
+
     </script>
 
     <div class="container2">
