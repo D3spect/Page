@@ -3,13 +3,6 @@
 <link rel="icon" type="image/png" href="icon.png">
 <head>
     <style>
-        .container {
-            padding-top: 5px;
-            display: flex;
-            justify-content: center;
-
-        }
-
                 .container2 {
             padding-top: 5px;
             display: flex;
@@ -18,14 +11,42 @@
         }
 
 
+
+
+.parent {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: flex;
+  padding-left: 1000px;
+  justify-content: left;
+}
+.image1 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  
+}
+.image2 {
+  position: absolute;
+  top: -50px;
+  left: 965px;
+  
+}
+
+
         .container3 {
             padding-top: var(--treesizing);
             overflow: hidden; 
             overscroll-behavior: contain;
 }       
+        .container4 {
+            padding-top: var(--treesizing);
+            z-index: 1;
+}       
         
-
-
         #stars {
             position: absolute;
             top: 0;
@@ -98,7 +119,7 @@ getBrowser()
             let brightness = 0
             let parralax = 0
             ctx.beginPath();
-            ctx.arc(x, y, 3, 0, Math.PI * 2);
+            ctx.arc(x, y, 3, 0, Math.PI    * 2);
             ctx.fillStyle = "white";
             ctx.fill();
             star.push([x, y, speed, size, brightness, parralax])
@@ -187,30 +208,11 @@ function shootingstars() {
             <p style="font-size:100px; color:white; font-family: sans ">Cool stuff i made</p>
         </div>
     </div>
-    <div class="container2">
-        <div class="card">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/fP8b480CgNk?si=NtSQIoEC7b2HC3k3"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
 
-    </div>
-
-    <div class="container">
-        <div class="card">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/5PAS0PnT1AY?si=-kamxZelMQF4gi8q"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-
-    </div>
-    <div class="container">
-        <div class="card">
-            <img src="Tree.png" width="560" height="360">
-        </div>
-    </div>
+    
+    <div class="parent">
+  <img class="image1"width="560" height="315" src="Tree.png" />
+  <img class="image2" width="620" height="415" src="border.png" />
     </div>
 
 
