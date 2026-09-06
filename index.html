@@ -10,16 +10,13 @@
 
         }
 
-
-
-
 .parent {
   position: relative;
   top: 0;
   left: 0;
   display: flex;
-  padding-left: 1000px;
-  justify-content: left;
+  
+  justify-content: center;
 }
 .image1 {
   position: relative;
@@ -27,25 +24,17 @@
   justify-content: center;
   top: 0;
   left: 0;
+  padding-bottom: 50px;
   
 }
 .image2 {
   position: absolute;
+  justify-content: center ;
   top: -50px;
-  left: 965px;
-  
 }
 
 
-        .container3 {
-            padding-top: var(--treesizing);
-            overflow: hidden; 
-            overscroll-behavior: contain;
-}       
-        .container4 {
-            padding-top: var(--treesizing);
-            z-index: 1;
-}       
+
         
         #stars {
             position: absolute;
@@ -65,7 +54,7 @@
             background-color: #5A4880;
             background-image: linear-gradient(to top, #5A4880, #141533);
             background-attachment: fixed;
-            overflow: hidden; 
+            
             overscroll-behavior: contain;
 }
         
@@ -93,7 +82,7 @@ getBrowser()
         
         const canvas = document.getElementById("stars");
         const ctx = canvas.getContext("2d")
-        canvas.width = window.innerWidth
+        canvas.width = window.innerWidth 
         canvas.height = window.innerHeight
         
        
@@ -108,7 +97,6 @@ getBrowser()
         
         
         star.length = 0;
-        console.log(star)
         let timer = 0;
         let nextSpawn = Math.random() * 300 + 10;
         for (let i = 0; i < 200; i++) {
@@ -179,26 +167,26 @@ function shootingstars() {
                 ctx.fill();
             }
             timer = timer+1 
-            console.log(timer)
+            
             if (shootingstar[0][1] > canvas.height) {
     console.log("SHOOTING STAR");
     shootingstar[0][0] = Math.random() * canvas.width;
     shootingstar[0][1] = 0;
+
+            if (timer < 400) {
+                start_canva()
+            }
 }
  shootingstars() 
             requestAnimationFrame(move);
         }
         move() 
         
-         function fixcanva() {
-            console.log("resized")
-            canvas.width = window.innerWidth
-            canvas.height = window.innerHeight
 
             
-        }
+
     }
-    start_canva()
+    
     window.addEventListener("resize", start_canva, false);
 
     </script>
@@ -211,6 +199,34 @@ function shootingstars() {
 
     
     <div class="parent">
+  <img class="image1"width="560" height="315" src="Tree.png" />
+  <img class="image2" width="620" height="415" src="border.png" />
+    </div>
+
+        <div class="parent">
+  <img class="image1"width="560" height="315" src="Tree.png" />
+  <img class="image2" width="620" height="415" src="border.png" />
+    </div>
+
+        <div class="parent">
+  <img class="image1"width="560" height="315" src="Tree.png" />
+  <img class="image2" width="620" height="415" src="border.png" />
+    </div>
+
+        <div class="parent">
+  <img class="image1"width="560" height="315" src="Tree.png" />
+  <img class="image2" width="620" height="415" src="border.png" />
+    </div>
+
+        <div class="parent">
+  <img class="image1"width="560" height="315" src="Tree.png" />
+  <img class="image2" width="620" height="415" src="border.png" />
+    </div>
+        <div class="parent">
+  <img class="image1"width="560" height="315" src="Tree.png" />
+  <img class="image2" width="620" height="415" src="border.png" />
+    </div>
+        <div class="parent">
   <img class="image1"width="560" height="315" src="Tree.png" />
   <img class="image2" width="620" height="415" src="border.png" />
     </div>
@@ -228,6 +244,10 @@ function shootingstars() {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pluh</title>
+
+    <script>
+    start_canva()
+    </script>
 
 </head>
 
