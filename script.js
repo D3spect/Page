@@ -1,13 +1,15 @@
-let treesizing;
 let chromespeed = 1;
 let treefix = "hidden"
+let star = []
+let shootingstar = []
+let nextSpawn = Math.random() * 300 + 10;
+
 function getBrowser() {
     if (navigator.userAgent.indexOf("Chrome") != -1) {
-        treesizing = "52vh";
         chromespeed = 0.3
         console.log("chrome")
     } else {
-        treesizing = "62vh";
+        console.log("other")
     }
 
     document.documentElement.style.setProperty("--treefix", treefix);
@@ -15,28 +17,17 @@ function getBrowser() {
 getBrowser()
 
 function start_canva() {
-
     const canvas = document.getElementById("stars");
     const ctx = canvas.getContext("2d")
     canvas.width = window.innerWidth
     canvas.height = document.documentElement.scrollHeight
 
     if (window.innerHeight < 3000) {
-        document.getElementById("container3").style.display = "none"
-        console.log("haha im code i run")
+        document.getElementById("Tree").style.display = "none"
     } else {
-        document.getElementById("container3").style.display = "inline"
+        document.getElementById("Tree").style.display = "inline"
     }
 
-    let star = []
-    let shootingstar = []
-    if (window.innerWidth > 4000) {
-        console.log("67")
-    }
-
-    star.length = 0;
-    let timer = 0;
-    let nextSpawn = Math.random() * 300 + 10;
     for (let i = 0; i < 200; i++) {
         let x = Math.random() * canvas.width;
         let y = Math.random() * canvas.height;
@@ -71,8 +62,8 @@ function start_canva() {
         gradient.addColorStop(1, "transparent");
         ctx.stroke()
 
-        shootingstar[0][0] += 2;
-        shootingstar[0][1] += 2;
+        shootingstar[0][0] += 2 * chromespeed;
+        shootingstar[0][1] += 2 * chromespeed;
     }
 
     function move(timestamp) {
@@ -96,7 +87,6 @@ function start_canva() {
             ctx.fillStyle = "white";
             ctx.fill();
         }
-        timer = timer + 1
 
         if (shootingstar[0][1] > canvas.height || shootingstar[0][1] > canvas.width) {
             console.log("SHOOTING STAR");

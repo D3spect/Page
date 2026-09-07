@@ -1,14 +1,12 @@
-.container2 {
+.Text {
     padding-top: 5px;
     display: flex;
     justify-content: center;
-
 }
 
-.container3 {
+.Tree {
     position: fixed;
     bottom: 0;
-
 }
 
 .parent {
@@ -26,10 +24,9 @@
     justify-content: center;
     top: 0;
     left: 0;
-
 }
 
-.image2 {
+.Border {
     position: absolute;
     justify-content: center;
     top: -58px;
@@ -41,8 +38,6 @@
     top: 0;
     left: 0;
     z-index: -1;
-
-
 }
 
 body {
@@ -54,6 +49,5 @@ body {
     background-color: #5A4880;
     background-image: linear-gradient(to top, #5A4880, #141533);
     background-attachment: fixed;
-
     overscroll-behavior: contain;
 }
