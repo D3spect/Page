@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <link rel="icon" type="image/png" href="icon.png">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,target-densitydpi=device-dpi, user-scalable=no" /><
 <head>
     <style>
+        
                 .container2 {
             padding-top: 5px;
             display: flex;
             justify-content: center;
 
+        }
+
+
+
+                .container3 {
+            position:fixed;
+            bottom: 0;
+            
         }
 
 .parent {
@@ -30,11 +40,8 @@
 .image2 {
   position: absolute;
   justify-content: center ;
-  top: -57px;
-  width: 629;
-  height: 430;
+  top: -50px;
 }
-
 
 
         
@@ -64,11 +71,11 @@
     </head>
 <body>
     <canvas id="stars"></canvas>
-
+    
     <script>
 let treesizing;
 let chromespeed = 1;
-
+let treefix = "hidden"
 function getBrowser() {
     if (navigator.userAgent.indexOf("Chrome") != -1) {
         treesizing = "52vh";
@@ -78,7 +85,7 @@ function getBrowser() {
         treesizing = "62vh";
     }
 
-    document.documentElement.style.setProperty("--treesizing", treesizing);
+    document.documentElement.style.setProperty("--treefix", treefix);
 }
 getBrowser()
 
@@ -89,7 +96,13 @@ getBrowser()
         canvas.width = window.innerWidth 
         canvas.height = document.documentElement.scrollHeight
         
-       
+           if (window.innerHeight < 3000) {
+      document.getElementById("container3").style.display = "none"
+      console.log("haha im code i run")
+    } else {
+       document.getElementById("container3").style.display = "inline"
+    }
+    
         
 
         let star = []
@@ -177,6 +190,8 @@ function shootingstars() {
     shootingstar[0][0] = Math.random() * canvas.width;
     shootingstar[0][1] = 0;
 
+
+    
 }
  shootingstars() 
             requestAnimationFrame(move);
@@ -189,6 +204,8 @@ function shootingstars() {
     }
     
     window.addEventListener("resize", start_canva, false);
+
+
 
     </script>
 
@@ -232,18 +249,15 @@ function shootingstars() {
   <img class="image2" width="620" height="415" src="border.png" />
     </div>
 
-
-        <div class="container3">
-        <div class="card">
-          <div class="left_header">
+        <div class="container3" id="container3">
+            
        <a href="https://deltarune.com/man/">
            <img src="tree.gif" class="logo" alt="logo" width="350" height="350">
        </a>
    </div>
-    </div>
-    </div>
+
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pluh</title>
 
     <script>
