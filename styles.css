@@ -1,0 +1,59 @@
+.container2 {
+    padding-top: 5px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.container3 {
+    position: fixed;
+    bottom: 0;
+
+}
+
+.parent {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    padding-bottom: 50px;
+    justify-content: center;
+}
+
+.image1 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    top: 0;
+    left: 0;
+
+}
+
+.image2 {
+    position: absolute;
+    justify-content: center;
+    top: -58px;
+    pointer-events: none
+}
+
+#stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+
+}
+
+body {
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    height: 100vb;
+    background-color: #5A4880;
+    background-image: linear-gradient(to top, #5A4880, #141533);
+    background-attachment: fixed;
+
+    overscroll-behavior: contain;
+}
