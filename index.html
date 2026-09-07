@@ -30,7 +30,9 @@
 .image2 {
   position: absolute;
   justify-content: center ;
-  top: -50px;
+  top: -57px;
+  width: 629;
+  height: 430;
 }
 
 
@@ -65,10 +67,12 @@
 
     <script>
 let treesizing;
+let chromespeed = 1;
 
 function getBrowser() {
     if (navigator.userAgent.indexOf("Chrome") != -1) {
         treesizing = "52vh";
+        chromespeed = 0.3
         console.log("chrome")
     } else {
         treesizing = "62vh";
@@ -102,7 +106,7 @@ getBrowser()
         for (let i = 0; i < 200; i++) {
             let x = Math.random() * canvas.width;
             let y = Math.random() * canvas.height;
-            let speed = Math.random() * 1 + 0.3
+            let speed = (Math.random() + 0.3) * chromespeed
             let size = Math.random() * 2 + 1 
             let brightness = 0
             let parralax = 0
@@ -168,14 +172,11 @@ function shootingstars() {
             }
             timer = timer+1 
             
-            if (shootingstar[0][1] > canvas.height) {
+            if (shootingstar[0][1] > canvas.height ||shootingstar[0][1] > canvas.width) {
     console.log("SHOOTING STAR");
     shootingstar[0][0] = Math.random() * canvas.width;
     shootingstar[0][1] = 0;
 
-            if (timer < 400) {
-                start_canva()
-            }
 }
  shootingstars() 
             requestAnimationFrame(move);
