@@ -1,8 +1,12 @@
 let chromespeed = 1;
 let treefix = "hidden"
+let nextSpawn = Math.random() * 300 + 10;
 let star = []
 let shootingstar = []
-let nextSpawn = Math.random() * 300 + 10;
+const canvas = document.getElementById("stars");
+const ctx = canvas.getContext("2d")
+    canvas.width = window.innerWidth
+    canvas.height = document.body.scrollHeight
 
 function getBrowser() {
     if (navigator.userAgent.indexOf("Chrome") != -1) {
@@ -16,18 +20,20 @@ function getBrowser() {
 }
 getBrowser()
 
+
+
+
+
+
 function start_canva() {
-    const canvas = document.getElementById("stars");
-    const ctx = canvas.getContext("2d")
-    canvas.width = window.innerWidth
-    canvas.height = document.documentElement.scrollHeight
+
 
     if (window.innerHeight < 3000) {
         document.getElementById("Tree").style.display = "none"
     } else {
         document.getElementById("Tree").style.display = "inline"
     }
-
+    
     for (let i = 0; i < 200; i++) {
         let x = Math.random() * canvas.width;
         let y = Math.random() * canvas.height;
@@ -41,9 +47,23 @@ function start_canva() {
         ctx.fill();
         star.push([x, y, speed, size, brightness, parralax])
         shootingstar.push([x, y])
+        
     }
 
-    function clear() {
+
+        if (shootingstar[0][1] > canvas.height || shootingstar[0][1] > canvas.width) {
+            console.log("SHOOTING STAR");
+            shootingstar[0][0] = Math.random() * canvas.width;
+            shootingstar[0][1] = 0;
+
+        }
+
+    }
+
+            function clear() {
+            canvas.width = window.innerWidth
+            canvas.height = window.innerHeight
+
         ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
 
@@ -66,7 +86,7 @@ function start_canva() {
         shootingstar[0][1] += 2 * chromespeed;
     }
 
-    function move(timestamp) {
+        function move() {
         clear()
 
         for (let i = 0; i < 200; i++) {
@@ -87,18 +107,12 @@ function start_canva() {
             ctx.fillStyle = "white";
             ctx.fill();
         }
-
-        if (shootingstar[0][1] > canvas.height || shootingstar[0][1] > canvas.width) {
-            console.log("SHOOTING STAR");
-            shootingstar[0][0] = Math.random() * canvas.width;
-            shootingstar[0][1] = 0;
-
-        }
         shootingstars()
         requestAnimationFrame(move);
-    }
-    move()
-
 }
-
-window.addEventListener("resize", start_canva, false);
+window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth
+    canvas.height = document.body.scrollHeight
+    star = []
+    start_canva()
+});
