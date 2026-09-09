@@ -28,7 +28,7 @@ getBrowser()
 function start_canva() {
 
 
-    if (window.innerHeight < 3000) {
+    if (window.innerHeight < 4000) {
         document.getElementById("Tree").style.display = "none"
     } else {
         document.getElementById("Tree").style.display = "inline"
